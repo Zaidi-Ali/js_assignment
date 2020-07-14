@@ -1,0 +1,47 @@
+<!Doctype html>
+<html>
+  <head>
+    <title> Assignment#1</title>
+    </head>
+    <body>
+    <script>
+      var today = new Date();  
+var day = today.getDay();  
+var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];  
+console.log("Today is : " + daylist[day] + ".");  
+var hour = today.getHours();  
+var minute = today.getMinutes();  
+var second = today.getSeconds();  
+var PMAMNoon = (hour >= 12)? " PM ":" AM ";  
+hour = (hour >= 12)? hour - 12: hour;  
+if (hour===0 && PMAMNoon===' PM ') 
+{   
+if (minute===0 && second===0)  
+{   
+hour=12;  
+PMAMNoon=' Noon';  
+}   
+else  
+{   
+hour=12;  
+PMAMNoon=' PM';  
+}   
+}   
+if (hour===0 && PMAMNoon===' AM ')   
+{   
+if (minute===0 && second===0)  
+{   
+hour=12;  
+PMAMNoon=' Midnight';  
+}   
+else  
+{   
+hour=12;  
+PMAMNoon=' AM';  
+}   
+}   
+console.log("Current Time : "+hour + PMAMNoon + " : " + minute + " : " + second);  
+    </script>
+    <h2>Q1 of Assignment for day 2</h2>
+    </body>
+</html>
