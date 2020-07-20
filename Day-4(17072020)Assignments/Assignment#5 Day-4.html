@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 5</title>
+</head>
+<body>
+    <script>
+        const sales=Number(prompt("Enter the sales provided by the employee"))
+        let percentage
+        if(sales>=0&&sales<=5000)
+            percentage=2;
+        else if(sales>=5001&&sales<=10000)
+            percentage=5;
+        else if(sales>=10001&&sales<=20000)
+            percentage=7;
+        else if(sales>=20001)
+            percentage=10;
+
+        console.log(percentage*sales/100)
+    </script>
+</body>
+</html>

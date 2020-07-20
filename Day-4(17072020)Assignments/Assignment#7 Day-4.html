@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 7</title>
+</head>
+<body>
+    <script>
+        const isPrime=(number)=>{
+            for(let i=2;i*i<=number;i++){
+                if(number%i==0)
+                    return false;
+            }
+
+            return true
+        }
+        const num=Number(prompt("Enter the number 'n' upto which you want to find prime numbers "))
+
+        for(let i=2;i<=num;i++){
+            if(isPrime(i))
+                console.log(i)
+        }
+    </script>
+</body>
+</html>
