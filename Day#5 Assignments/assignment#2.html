@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Question#2</title>
+</head>
+<body>
+	<h2>Question#2</h2>
+	<script>
+		/*Question 2:
+        Create a Class User with properties as name, age & email.
+        He can login and logout
+        Create another class Moderator which has all the features of User, plus additional functionality to Add
+        coins and remove coins.
+        Create one more class Admin which has all the features of Moderator plus additional features like add a
+        Course and delete a particular course for a user.*/
+
+        class UserInput {
+            constructor(name, age,email) {
+              this.name = name;
+              this.age = age;
+              this.email = email;
+              this.LUCoins = 0;
+              this.courses = [];
+            }
+        
+            static greet(){
+                console.log("Hey! What's Up");
+            }
+        
+            login(){
+                console.log(`${this.name} has logged in`);
+                return this;
+            }
+            logout(){
+                console.log(`${this.name} has logged out`);
+                return this;
+            }
+            
+            getDetails(){
+                console.log(`Name is ${this.name}, email is ${this.email} , LUCoins are ${this.LUCoins} , Courses = ${this.courses}`);
+                return this;
+            }
+        
+        }
+        
+        class Moderator extends UserInput{
+            constructor(name,age,email,role){
+                super(name,age,email);
+                this.role = role;
+            }
+        
+            deleteUser(user){
+                users = users.filter(u =>{
+                    return u.email != user.email; 
+                })
+            }
+            addCoins(user){
+               userLUCoins++;
+                console.log(`${user.name} has ${userLUCoins} coins`);
+                return this;
+            }
+            removeCoins(user){
+                if(user.LUCoins>0){
+                userLUCoins--;
+                console.log(`${user.name}  LUCoins as decremented and he has ${user.LUCoins} coins left`);}
+                else{
+                    console.log(`${user.name} has 0 LUCoins.`);
+                }
+                return this;
+            }
+        
+        }
+        
+        class Admin extends Moderator{
+           addCourse(user,course){
+               user.courses.push(course);
+               console.log(user);
+           }
+           removeCourse(user,course){
+            let index=user.courses.indexOf(course);
+            user.courses.splice(index,1);
+            console.log(`${user.name}, ${course} course is removed.`);
+            console.log(user);
+        }
+        }
+  
+        let userShin = new UserInput('Shin',28,'shin@gmail.com')
+        let usertin = new UserInput('tin',30,'tin@gmail.com')
+        let modfin = new Moderator('fin',19,'fin@gmail.com','Moderator');
+        let adminKin = new Admin('Kin',18,'kin@gmail.com');
+        let users = [userShin,usertin,modfin,adminKin];
+        
+        userShin.login();
+        UserInput.greet();
+
+        modfin.addCoins(userShin);
+        modfin.addCoins(userShin);
+        adminKin.addCourse(userShin,"Python")
+        adminKin.addCourse(userShin,"JavaScript")
+        adminKin.addCourse(userShin,"CSS")
+        modfin.removeCoins(userShin);
+        adminKin.removeCourse(userShin,"JavaScript");
+
+        userShin.getDetails();
+        userShin.logout();
+
+        usertin.login();
+        UserInput.greet();
+
+        modfin.addCoins(usertin);
+        modfin.addCoins(usertin);
+        modfin.addCoins(usertin);
+        adminKin.addCourse(usertin,"C#")
+        adminKin.addCourse(usertin,"PHP")
+        adminKin.addCourse(usertin,"Python")
+        adminKin.addCourse(usertin,"SQL")
+        modfin.removeCoins(usertin);
+        adminKin.removeCourse(userAbc,"Python");
+
+        usertin.getDetails();
+        usertin.logout();
+        modfin.deleteUser(usertin);
+	</script>
+	
+</body>
+</html>
