@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Day#6 Assignment#1</title>
+</head>
+<body id="bg">
+	<h2>Assignment#1</h2>
+	<script>
+		let arrColor = ['Yellow','Orange','Powderblue','Red','Gray','Black'];
+
+
+let bg = document.getElementById('bg');
+
+
+
+function changeBackground(){
+    const arrColorLength = arrColor.length;
+    let random = Math.trunc(Math.random()*arrColorLength);
+    console.log(arrColor[random]);
+    bg.style.backgroundColor = arrColor[random];
+}
+
+setInterval(changeBackground,5000);
+	</script>
+</body>
+</html>
